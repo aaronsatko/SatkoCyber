@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reclamation Station - Quality Preowned Computers</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/path/to/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --maroon: #321a17;
+            --gold: #FFD700;
+            --light-gold: #FFF2CC;
+            --dark-gray: #333333;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--maroon);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--gold);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--maroon);
+            color: var(--white);
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--maroon);
+        }
+
+        .section-title span {
+            color: var(--gold);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--maroon);
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--maroon);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            color: var(--white);
+            padding: 150px 0 250px 0; /* Format: top right bottom left */
+            overflow: hidden;
+        }
+        
+        .hero-background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        /* Optional overlay to ensure text remains readable */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(128, 0, 0, 0.9), rgba(128, 0, 0, 0.7));
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-img {
+            height: 200px;
+            background-color: var(--maroon);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-content h3 {
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-gold);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            background-color: var(--maroon);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            border-radius: 8px;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px; /* Matches container border-radius */
+        }
+
+        .about-text h2 {
+            color: var(--maroon);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        /* Featured Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            font-size: 2rem;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px; /* Matches container border-radius */
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-content h3 {
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--maroon);
+            color: var(--white);
+        }
+
+        .testimonials .section-title {
+            color: var(--white);
+        }
+
+        .testimonials-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 40px;
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .slider-dot.active {
+            background-color: var(--gold);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            color: var(--maroon);
+            margin-bottom: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: var(--white);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--white);
+                transition: all 0.3s;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="Logos\logonowords.png" alt="Logo" class="logo-img" style="height: 50px; width: auto; margin-right: 10px;">
+                    <div class="logo-text">Reclamation <span>Station</span></div>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <img src="SiteImages\recyclecpu.png" alt="Reclamation Station Hero Image" class="hero-background-image">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Get the Computer Help You Need at <span>Reclamation Station</span></h1>
+            <!-- <p>Restore your tech's potential. Our skilled technicians provide reliable, fast repairs and custom upgrades for your computers, extending their life and performance without breaking the bank.</p> -->
+            <!-- <a href="#services" class="btn">Explore Services</a> -->
+        </div>
+    </div>
+</section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our <span>Services</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="SiteImages/repair.png" alt="Computer Repair" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Computer Repair</h3>
+                        <p>Whether you're dealing with a slow system, broken screen, failing hard drive, or software issues, our expert technicians provide fast, reliable repair services for both Apple and Windows computers. We diagnose and fix hardware and software problems with precision, using quality components to restore performance and extend the life of your device.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="SiteImages\upgrades.png" alt="Computer Upgrades" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Upgrades</h3>
+                        <p>Boost the speed, storage, and overall performance of your current computer with tailored upgrade solutions. Whether it's adding more RAM, switching to a solid-state drive, or optimizing your operating system, we help extend the life of your device without the cost of a new one.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="SiteImages\recycle.png" alt="Eco-Friendly Recycling" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Trade-In & Recycling Program</h3>
+                        <p>Turn your old electronics into savings. Bring in your used or unwanted devices for responsible recycling, and earn discounts on repairs or future purchases. Our eco-friendly program keeps e-waste out of landfills while giving your tech a second life.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="SiteImages\loaner.png" alt="Loaner Computers" />
+                    </div>
+                    <div class="service-content">
+                        <h3>Loaner Computers</h3>
+                        <p>We know how important it is to stay connected while your device is being repaired. That’s why we offer complimentary loaner laptops to keep you productive and stress-free during the repair process. Available on a first-come, first-served basis—just ask when you check in your device.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="about-logo" style="text-align: center; margin-bottom: 20px;">
+                <img src="Logos\logonowords.png" alt="Reclamation Station Logo" style="height:50px;width:auto;">
+            </div>
+            <h2 class="section-title">About <span>Us</span></h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="Logos\logowhiteback.png" alt="Store Image" />
+                </div>
+                <div class="about-text">
+                    <p>Reclamation Station proudly serves the NC Triad area, including High Point, Greensboro, and Winston-Salem providing fast, affordable, and reliable computer repair services without the constraints of a physical storefront. Our convenient pickup and drop-off services mean easy, stress-free repairs for you and reduced electronic waste for our environment.</p>
+                    <p>Each year, countless devices are discarded prematurely due to fixable issues. At Reclamation Station, our mission is to change this pattern. Through expert diagnostics, high-quality repairs, and transparent, trustworthy service, we extend the life of your valuable technology.</p>
+                    <p>From broken screens and failing hard drives to sluggish performance and frequent system crashes, we've successfully revived hundreds of devices, helping our customers save both time and money while preventing unnecessary replacements.</p>
+                    <p>Our skilled technicians approach every repair with meticulous care, premium-quality parts, and eco-conscious practices. Whether it's your personal laptop or a critical desktop for your business, we ensure your device is repaired swiftly and responsibly, restoring optimal performance when you need it most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured <span>Products</span></h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="ProductImgs\imac.JPG" alt="Desktop PC" />
+                    </div>
+                    <div class="product-content">
+                        <h3>iMac</h3>
+                        <p>Contact us for available devices and specs.</p>
+                        <div class="product-price">Starting at $200</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="ProductImgs\laptop.JPG" alt="Business Laptop" />
+                    </div>
+                    <div class="product-content">
+                        <h3>Business-Grade Laptops</h3>
+                        <p>Contact us for available devices and specs.</p>
+                        <div class="product-price">Starting at $100</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="ProductImgs\monitors.JPG" alt="Monitor" />
+                    </div>
+                    <div class="product-content">
+                        <h3>Dell Monitors</h3>
+                        <p>Contact us for available devices and specs.</p>
+                        <div class="product-price">Starting at $20</div>
+                    </div>
+                </div>
+                <!-- <div class="product-card">
+                    <div class="product-img">
+                        <img src="/api/placeholder/300/200" alt="Gaming PC" />
+                    </div>
+                    <div class="product-content">
+                        <h3>Gaming Desktop</h3>
+                        <p>Ryzen 7, 32GB RAM, 1TB SSD, RTX 3060, Windows 11</p>
+                        <div class="product-price">$999</div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">Customer <span>Testimonials</span></h2>
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">"I bought a refurbished laptop for my daughter's online classes, and it works perfectly! Great value and excellent customer service."</p>
+                    <p class="testimonial-author">- Sarah M.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"As a small business owner, I needed affordable computers for my staff. Reclamation Station provided quality refurbished systems that saved us thousands."</p>
+                    <p class="testimonial-author">- Michael T.</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"They upgraded my old desktop and now it runs like new! Friendly staff and very reasonable prices. Highly recommend!"</p>
+                    <p class="testimonial-author">- Jennifer K.</p>
+                </div>
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-index="0"></div>
+                    <div class="slider-dot" data-index="1"></div>
+                    <div class="slider-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <h2 class="section-title">Contact <span>Us</span></h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Central NC</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:agsatko@gmail.com.com">info@reclamationstation.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>(336) 123-4567</p>
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4>Hours</h4>
+                        <p>Mon-Fri: 9am - 6pm<br>Sat: 10am - 4pm<br>Sun: Closed</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm" action="https://formsubmit.co/agsatko@gmail.com" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Please provide general information about your request: device, location, and desired speed of service, and we'll get back to you with a quote."required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo" style="text-align: center; margin-bottom: 30px;">
+                <img src="Logos\logonowords.png" alt="Reclamation Station Logo" style="height:50px;width:auto;">
+            </div>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📱</a>
+                        <a href="#" aria-label="Twitter">📱</a>
+                        <a href="#" aria-label="Instagram">📱</a>
+                        <a href="#" aria-label="LinkedIn">📱</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new products and special offers.</p>
+                    <br>
+                    <form id="newsletterForm" action="https://formsubmit.co/your-email@example.com" method="POST">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Reclamation Station. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.textContent = nav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.textContent = '☰';
+                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentIndex = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
+
+        // Click on dots
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showTestimonial(parseInt(dot.dataset.index));
+            });
+        });
+
+        // Auto rotate testimonials
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            showTestimonial(currentIndex);
+        }, 5000);
+    </script>
+</body>
+</html>
