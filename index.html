@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reclamation Station - Quality Preowned Computers</title>
+    <meta name="description" content="Satko Cyber provides quality preowned computers, expert repairs, and eco-friendly tech services in the NC Triad area.">
+    <meta name="keywords" content="computer repair, refurbished computers, technology recycling, NC Triad, computer upgrades">
+    <title>Satko Cyber - Quality Preowned Computers and Services</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/path/to/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="Logos/logonowords.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
@@ -280,6 +282,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            position: relative;
         }
 
         .product-card:hover {
@@ -317,6 +320,22 @@
             font-weight: 700;
             font-size: 1.2rem;
             margin: 10px 0;
+        }
+
+        .product-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(50, 26, 23, 0.9);
+            color: var(--white);
+            padding: 15px;
+            transition: bottom 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .product-card:hover .product-overlay {
+            bottom: 0;
         }
 
         /* Testimonials */
@@ -430,6 +449,16 @@
             height: 150px;
         }
 
+        .form-success {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border-left: 4px solid #4CAF50;
+            display: none;
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark-gray);
@@ -476,6 +505,67 @@
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--maroon);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--gold);
+            color: var(--dark-gray);
+        }
+
+        /* Animation Effects */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .bounce {
+            animation: bounce 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
         }
 
         /* Media Queries */
@@ -535,7 +625,7 @@
             <div class="header-content">
                 <div class="logo">
                     <img src="Logos\logonowords.png" alt="Logo" class="logo-img" style="height: 50px; width: auto; margin-right: 10px;">
-                    <div class="logo-text">Reclamation <span>Station</span></div>
+                    <div class="logo-text">Satko <span>Cyber</span></div>
                 </div>
                 <button class="mobile-menu-btn">☰</button>
                 <nav>
@@ -554,12 +644,12 @@
 
 <!-- Hero Section -->
 <section id="home" class="hero">
-    <img src="SiteImages\recyclecpu.png" alt="Reclamation Station Hero Image" class="hero-background-image">
+    <img src="SiteImages\recyclecpu.png" alt="Satko Cyber Hero Image" class="hero-background-image">
     <div class="container">
-        <div class="hero-content">
-            <h1>Get the Computer Help You Need at <span>Reclamation Station</span></h1>
-            <!-- <p>Restore your tech's potential. Our skilled technicians provide reliable, fast repairs and custom upgrades for your computers, extending their life and performance without breaking the bank.</p> -->
-            <!-- <a href="#services" class="btn">Explore Services</a> -->
+        <div class="hero-content fade-in">
+            <h1>Get the Computer Help You Need at <span>Satko Cyber</span></h1>
+            <p>Restore your tech's potential. Our skilled technicians provide reliable, fast repairs and custom upgrades for your computers, extending their life and performance without breaking the bank.</p>
+            <a href="#services" class="btn bounce">Explore Services</a>
         </div>
     </div>
 </section>
@@ -613,16 +703,16 @@
     <section id="about" class="section about">
         <div class="container">
             <div class="about-logo" style="text-align: center; margin-bottom: 20px;">
-                <img src="Logos\logonowords.png" alt="Reclamation Station Logo" style="height:50px;width:auto;">
+                <img src="Logos\logonowords.png" alt="Satko Cyber Logo" style="height:50px;width:auto;">
             </div>
             <h2 class="section-title">About <span>Us</span></h2>
             <div class="about-content">
                 <div class="about-img">
-                    <img src="Logos\logowhiteback.png" alt="Store Image" />
+                    <img src="SiteImages\stackedmacs.jpg" alt="Store Image" />
                 </div>
                 <div class="about-text">
-                    <p>Reclamation Station proudly serves the NC Triad area, including High Point, Greensboro, and Winston-Salem providing fast, affordable, and reliable computer repair services without the constraints of a physical storefront. Our convenient pickup and drop-off services mean easy, stress-free repairs for you and reduced electronic waste for our environment.</p>
-                    <p>Each year, countless devices are discarded prematurely due to fixable issues. At Reclamation Station, our mission is to change this pattern. Through expert diagnostics, high-quality repairs, and transparent, trustworthy service, we extend the life of your valuable technology.</p>
+                    <p>Satko Cyber proudly serves the NC Triad area, including High Point, Greensboro, and Winston-Salem providing fast, affordable, and reliable computer repair services without the constraints of a physical storefront. Our convenient pickup and drop-off services mean easy, stress-free repairs for you and reduced electronic waste for our environment.</p>
+                    <p>Each year, countless devices are discarded prematurely due to fixable issues. At Satko Cyber, our mission is to change this pattern. Through expert diagnostics, high-quality repairs, and transparent, trustworthy service, we extend the life of your valuable technology.</p>
                     <p>From broken screens and failing hard drives to sluggish performance and frequent system crashes, we've successfully revived hundreds of devices, helping our customers save both time and money while preventing unnecessary replacements.</p>
                     <p>Our skilled technicians approach every repair with meticulous care, premium-quality parts, and eco-conscious practices. Whether it's your personal laptop or a critical desktop for your business, we ensure your device is repaired swiftly and responsibly, restoring optimal performance when you need it most.</p>
                 </div>
@@ -644,6 +734,9 @@
                         <p>Contact us for available devices and specs.</p>
                         <div class="product-price">Starting at $200</div>
                     </div>
+                    <div class="product-overlay">
+                        <p>High-quality refurbished iMacs available now!</p>
+                    </div>
                 </div>
                 <div class="product-card">
                     <div class="product-img">
@@ -653,6 +746,9 @@
                         <h3>Business-Grade Laptops</h3>
                         <p>Contact us for available devices and specs.</p>
                         <div class="product-price">Starting at $100</div>
+                    </div>
+                    <div class="product-overlay">
+                        <p>Perfect for work and productivity tasks.</p>
                     </div>
                 </div>
                 <div class="product-card">
@@ -664,18 +760,10 @@
                         <p>Contact us for available devices and specs.</p>
                         <div class="product-price">Starting at $20</div>
                     </div>
+                    <div class="product-overlay">
+                        <p>Affordable monitors for all your needs.</p>
+                    </div>
                 </div>
-                <!-- <div class="product-card">
-                    <div class="product-img">
-                        <img src="/api/placeholder/300/200" alt="Gaming PC" />
-                    </div>
-                    <div class="product-content">
-                        <h3>Gaming Desktop</h3>
-                        <p>Ryzen 7, 32GB RAM, 1TB SSD, RTX 3060, Windows 11</p>
-                        <div class="product-price">$999</div>
-                        <a href="#" class="btn">View Details</a>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -686,16 +774,16 @@
             <h2 class="section-title">Customer <span>Testimonials</span></h2>
             <div class="testimonials-slider">
                 <div class="testimonial active">
-                    <p class="testimonial-text">"I bought a refurbished laptop for my daughter's online classes, and it works perfectly! Great value and excellent customer service."</p>
-                    <p class="testimonial-author">- Sarah M.</p>
+                    <p class="testimonial-text">"The condition of the iMac surpassed the description. It was just like new. Aaron was very helpful and trustworthy."</p>
+                    <p class="testimonial-author">- Michael</p>
                 </div>
                 <div class="testimonial">
-                    <p class="testimonial-text">"As a small business owner, I needed affordable computers for my staff. Reclamation Station provided quality refurbished systems that saved us thousands."</p>
-                    <p class="testimonial-author">- Michael T.</p>
+                    <p class="testimonial-text">"As a small business owner, I needed affordable computers for my staff. Satko Cyber provided quality refurbished systems that saved us thousands."</p>
+                    <p class="testimonial-author">- Beau</p>
                 </div>
                 <div class="testimonial">
                     <p class="testimonial-text">"They upgraded my old desktop and now it runs like new! Friendly staff and very reasonable prices. Highly recommend!"</p>
-                    <p class="testimonial-author">- Jennifer K.</p>
+                    <p class="testimonial-author">- Sarah</p>
                 </div>
                 <div class="slider-nav">
                     <div class="slider-dot active" data-index="0"></div>
@@ -755,7 +843,7 @@
             </div>
 
             <div class="contact-form">
-                <form id="contactForm" action="https://formsubmit.co/agsatko@gmail.com" method="POST">
+                <form id="contactForm" action="https://formsubmit.co/84bac634fc4fa768c43bd648a8225666 " method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -774,6 +862,7 @@
                     </div>
                     <button type="submit" class="btn">Send Message</button>
                 </form>
+                <div class="form-success">Thank you for your message! We will get back to you soon.</div>
             </div>
         </div>
     </div>
@@ -783,16 +872,16 @@
     <footer>
         <div class="container">
             <div class="footer-logo" style="text-align: center; margin-bottom: 30px;">
-                <img src="Logos\logonowords.png" alt="Reclamation Station Logo" style="height:50px;width:auto;">
+                <img src="Logos\logonowords.png" alt="Satko Cyber Logo" style="height:50px;width:auto;">
             </div>
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Connect With Us</h3>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook">📱</a>
-                        <a href="#" aria-label="Twitter">📱</a>
-                        <a href="#" aria-label="Instagram">📱</a>
-                        <a href="#" aria-label="LinkedIn">📱</a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -818,10 +907,13 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Reclamation Station. All Rights Reserved.</p>
+                <p>&copy; 2025 Satko Cyber. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
 
     <!-- JavaScript -->
     <script>
@@ -833,7 +925,6 @@
             nav.classList.toggle('active');
             mobileMenuBtn.textContent = nav.classList.contains('active') ? '✕' : '☰';
         });
-
         // Smooth Scroll for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -876,6 +967,75 @@
             currentIndex = (currentIndex + 1) % testimonials.length;
             showTestimonial(currentIndex);
         }, 5000);
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Submission Handling
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.querySelector('.form-success');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // The form will be submitted to FormSubmit, but we'll show a success message
+                // after submission to improve user experience
+                setTimeout(() => {
+                    formSuccess.style.display = 'block';
+                    contactForm.reset();
+                    
+                    // Hide the success message after 5 seconds
+                    setTimeout(() => {
+                        formSuccess.style.display = 'none';
+                    }, 5000);
+                }, 1000);
+            });
+        }
+        
+        // Newsletter form handling
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                setTimeout(() => {
+                    alert('Thank you for subscribing to our newsletter!');
+                    newsletterForm.reset();
+                }, 500);
+            });
+        }
+        
+        // Add animation classes to elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.services-grid .service-card, .products-grid .product-card, .section-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('slide-up');
+                }
+            });
+        };
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        // Run once on page load
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
